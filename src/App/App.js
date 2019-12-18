@@ -1,16 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import firebaseConnection from '../helpers/data/Connection';
 import Auth from '../components/Auth/Auth';
+import MyNavBar from '../components/MyNavBar/MyNavBar';
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
+firebaseConnection();
+
+class App extends React.Component {
+  state = {
+    authed: false,
+  }
+
+  componentDidMount() {
+    this.removeListener = firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({ authed: true });
+      } else {
+        this.setState({ authed: false });
+      }
+    });
+  }
+
+  componentWillUnmount() {
+    console.log(this.removeListener);
+    this.removeListener();
+  }
+
+  render() {
+    const { authed } = this.state;
+    return (
     <div className="App">
-      <Auth />
-      <button className="btn btn-danger">Hi</button>
+      <MyNavBar authed={authed} />
+      {
+      (authed) ? (<div>You Logged In!</div>) : (<Auth />)
+      }
     </div>
-  );
+    );
+  }
 }
 
 export default App;
