@@ -1,0 +1,79 @@
+{
+  "player1": {
+    "id": "player1",
+    "imageUrl": "https://i.pinimg.com/originals/74/2e/70/742e70435b55d8c79015be43689d3a63.jpg",
+    "name": "Reggie Dunlop",
+    "position": "center",
+    "uid": ""
+  },
+  "player2": {
+    "id": "player2",
+    "imageUrl": "https://vignette.wikia.nocookie.net/hockeymovies/images/b/b6/Ned_Braden.png/revision/latest/scale-to-width-down/275?cb=20130627172724",
+    "name": "Ned Braden",
+    "position": "right wing",
+    "uid": ""
+  },
+  "player3": {
+    "id": "player3",
+    "imageUrl": "https://vignette.wikia.nocookie.net/hockeymovies/images/7/77/Killer_Carlson.png/revision/latest/scale-to-width-down/275?cb=20130717171848",
+    "name": "Dave Carlson",
+    "position": "left wing",
+    "uid": ""
+  },
+  "player4": {
+    "id": "player4",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4GP4_lHg0mDnVtjk0s_dd4518Dm0wTHmt6EHvdkiFHRWvnCR9&s",
+    "name": "Jeff Hanson",
+    "position": "defenseman",
+    "uid": ""
+  },
+  "player5": {
+    "id": "player5",
+    "imageUrl": "https://thumbs.worthpoint.com/zoom/images4/1/0914/08/vintage-steve-hanson-brothers_1_37ed64fb68cab22a23334201f4855517.jpg",
+    "name": "Steve Hanson",
+    "position": "defenseman",
+    "uid": ""
+  },
+  "player6": {
+    "id": "player6",
+    "imageUrl": "https://i.pinimg.com/236x/80/72/a6/8072a660a209a9c3d8a3cf067f82d843.jpg",
+    "name": "Jack Hanson",
+    "position": "defenseman",
+    "uid": ""
+  },
+  "player7": {
+    "id": "player7",
+    "imageUrl": "https://i.pinimg.com/474x/60/54/d0/6054d0469dc425d629c5d2a938bcdcdd--slap-shot-movie-hockey-goalie.jpg",
+    "name": "Dennis Lemieux",
+    "position": "goalie",
+    "uid": ""
+  },
+  "player8": {
+    "id": "player8",
+    "imageUrl": "https://pbs.twimg.com/media/DwWtAtYW0AAF58k.jpg",
+    "name": "Johnny Upton",
+    "position": "right wing",
+    "uid": ""
+  },
+  "player9": {
+    "id": "player9",
+    "imageUrl": "https://i.pinimg.com/474x/69/d9/1b/69d91b37c77d30dc2266ffdd7631a1e3.jpg",
+    "name": "Morris Wanchuk",
+    "position": "defenseman",
+    "uid": ""
+  },
+  "player10": {
+    "id": "player10",
+    "imageUrl": "https://madbrothers.com/media/catalog/product/cache/1/image/400x400/9df78eab33525d08d6e5fb8d27136e95/B/e/Bergeron_67.jpg",
+    "name": "Andre Bergeron",
+    "position": "left wing",
+    "uid": ""
+  },
+  "player11": {
+    "id": "player11",
+    "imageUrl": "https://mrburnscollectorscorner.weebly.com/uploads/2/1/0/2/21025432/lebrun-ron-77-78-chiefs_orig.png",
+    "name": "Yvon Lebrun",
+    "position": "goalie",
+    "uid": ""
+  }
+}
