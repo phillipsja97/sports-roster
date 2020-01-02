@@ -7,7 +7,6 @@ const getPlayers = (uid) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/players.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       const allPlayers = response.data;
-      console.log(allPlayers);
       const players = [];
       if (allPlayers != null) {
         Object.keys(allPlayers).forEach((fbId) => {
@@ -16,7 +15,6 @@ const getPlayers = (uid) => new Promise((resolve, reject) => {
         });
       }
       resolve(players);
-      console.log(players);
     })
     .catch((error) => reject(error));
 });
