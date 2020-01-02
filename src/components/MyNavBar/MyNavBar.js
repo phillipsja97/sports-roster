@@ -17,22 +17,18 @@ class MyNavBar extends React.Component {
     const { authed } = this.props;
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand">Charlestown Chiefs</a>
+        <span className="navbar-brand">Charlestown Chiefs</span>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <li className="nav-item active">
-              <a className="nav-link">Players <span className="sr-only">(current)</span></a>
-            </li>
               { authed && (<button className="nav-link btn btn-danger" onClick={this.logMeOut}>Logout</button>)}
           </ul>
         </div>
       </nav>
-    )
+    );
   }
-
 }
 
 export default MyNavBar;
