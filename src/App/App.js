@@ -4,6 +4,8 @@ import 'firebase/auth';
 import firebaseConnection from '../helpers/data/Connection';
 import Auth from '../components/Auth/Auth';
 import MyNavBar from '../components/MyNavBar/MyNavBar';
+import Team from '../components/Team/Team';
+import playerData from '../helpers/data/playerData';
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -12,9 +14,12 @@ firebaseConnection();
 class App extends React.Component {
   state = {
     authed: false,
+    players: [],
   }
 
   componentDidMount() {
+    const players = playerData.getPlayers();
+    this.setState({ players });
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ authed: true });
@@ -37,6 +42,7 @@ class App extends React.Component {
       {
       (authed) ? (<div>You Logged In!</div>) : (<Auth />)
       }
+      <Team players={this.state.players} />
     </div>
     );
   }
