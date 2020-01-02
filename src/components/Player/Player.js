@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import playerShape from '../../helpers/propz/playerShape';
 import './Player.scss';
 
@@ -6,6 +7,13 @@ import './Player.scss';
 class Player extends React.Component {
   static propTypes = {
     board: playerShape.playerShape,
+    deleteSinglePlayer: PropTypes.func,
+  }
+
+  deleteSinglePlayerEvent = (e) => {
+    e.preventDefault();
+    const { deleteSinglePlayer, player } = this.props;
+    deleteSinglePlayer(player.id);
   }
 
   render() {
@@ -20,7 +28,7 @@ class Player extends React.Component {
            </div>
            <div className="d-inline-flex justify-content-center" id="cardButtons">
            <button className="btn btn-outline-warning" id="updatePlayerButton">Update Player Info</button>
-           <button className="btn btn-outline-danger" id="deletePlayerButton">Delete Player</button>
+           <button className="btn btn-outline-danger" onClick={this.deleteSinglePlayerEvent} id="deletePlayerButton">Delete Player</button>
            </div>
         </div>
       </div>

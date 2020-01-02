@@ -15,6 +15,7 @@ class App extends React.Component {
   state = {
     authed: false,
     players: [],
+    selectedPlayerId: null,
   }
 
   componentDidMount() {
