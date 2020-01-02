@@ -8,12 +8,21 @@ class Player extends React.Component {
   static propTypes = {
     board: playerShape.playerShape,
     deleteSinglePlayer: PropTypes.func,
+    setEditMode: PropTypes.func,
+    setPlayerToEdit: PropTypes.func,
   }
 
   deleteSinglePlayerEvent = (e) => {
     e.preventDefault();
     const { deleteSinglePlayer, player } = this.props;
     deleteSinglePlayer(player.id);
+  }
+
+  setEditModeEvent = (e) => {
+    const { setEditMode, setPlayerToEdit, player } = this.props;
+    e.preventDefault();
+    setEditMode();
+    setPlayerToEdit(player);
   }
 
   render() {
@@ -27,7 +36,7 @@ class Player extends React.Component {
              <img src={player.imageUrl} alt={player.name} id="playerPhoto"/>
            </div>
            <div className="d-inline-flex justify-content-center" id="cardButtons">
-           <button className="btn btn-outline-warning" id="updatePlayerButton">Update Player Info</button>
+           <button className="btn btn-outline-warning" onClick={this.setEditModeEvent} id="updatePlayerButton">Update Player Info</button>
            <button className="btn btn-outline-danger" onClick={this.deleteSinglePlayerEvent} id="deletePlayerButton">Delete Player</button>
            </div>
         </div>
