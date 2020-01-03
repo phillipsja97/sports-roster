@@ -8,6 +8,9 @@ import PlayerForm from '../PlayerForm/PlayerForm';
 class Team extends React.Component {
   state = {
     players: [],
+    editMode: false,
+    playerToEdit: {},
+    showPlayerForm: false,
   }
 
   getPlayers = () => {
@@ -34,17 +37,45 @@ class Team extends React.Component {
     playerData.addPlayer(newPlayer)
       .then(() => {
         this.getPlayers(authData.getUid());
+        this.setState({ showPlayerForm: false });
       })
       .catch((errorFromAddPin) => console.error(errorFromAddPin));
   }
 
+  updateCurrentPlayer = (playerId, updatedInfo) => {
+    playerData.updatePlayer(playerId, updatedInfo)
+      .then(() => {
+        this.getPlayers(authData.getUid);
+        this.setState({ editMode: false, showPlayerForm: false });
+      })
+      .catch((errorFromUpdatePin) => console.error(errorFromUpdatePin));
+  }
+
+  setShowPlayerForm = () => {
+    this.setState({ showPlayerForm: true });
+  }
+
+  setHidePlayerForm = () => {
+    this.setState({ showPlayerForm: false, editMode: false });
+  }
+
+  setEditMode = () => {
+    this.setState({ editMode: true, showPlayerForm: true });
+  }
+
+  setPlayerToEdit = (player) => {
+    this.setState({ playerToEdit: player });
+  }
+
 
   render() {
+    const { setPlayerToEdit } = this.props;
     return (
       <div>
-      <PlayerForm addNewPlayer={this.addNewPlayer} />
+      <button className="btn btn-primary" onClick={this.setShowPlayerForm}>Add a new player</button>
+  { this.state.showPlayerForm && <PlayerForm addNewPlayer={this.addNewPlayer} editMode={this.state.editMode} playerToEdit={this.state.playerToEdit} updateCurrentPlayer={this.updateCurrentPlayer} setHidePlayerForm={this.setHidePlayerForm} /> }
       <div className="d-flex flex-wrap justify-content-center" id="playersContainer">
-        { this.state.players.map((player) => (<Player key={player.id} player={player} deleteSinglePlayer={this.deleteSinglePlayer} addNewPlayer={this.addNewPlayer} />))}
+        { this.state.players.map((player) => (<Player key={player.id} player={player} deleteSinglePlayer={this.deleteSinglePlayer} addNewPlayer={this.addNewPlayer} setEditMode={this.setEditMode} setPlayerToEdit={this.setPlayerToEdit} />))}
       </div>
       </div>
     );

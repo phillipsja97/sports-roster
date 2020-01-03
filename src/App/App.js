@@ -15,7 +15,6 @@ class App extends React.Component {
   state = {
     authed: false,
     players: [],
-    selectedPlayerId: null,
   }
 
   componentDidMount() {
@@ -31,7 +30,6 @@ class App extends React.Component {
   }
 
   componentWillUnmount() {
-    console.log(this.removeListener);
     this.removeListener();
   }
 
