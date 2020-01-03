@@ -34,7 +34,7 @@ class PlayerForm extends React.Component {
       name: this.state.playerName,
       imageUrl: this.state.playerImageUrl,
       position: this.state.playerPosition,
-      uid: playerToEdit.uid,
+      uid: authData.getUid(),
     };
     updateCurrentPlayer(playerToEdit.id, updatedPlayer);
   }
@@ -68,6 +68,7 @@ class PlayerForm extends React.Component {
   }
 
   render() {
+    const { editMode } = this.props;
     return (
       <div>
       <button className="btn btn-danger hide-form" onClick={this.props.setHidePlayerForm}>X</button>
@@ -106,7 +107,7 @@ class PlayerForm extends React.Component {
         />
       </div>
       {
-          (this.state.editMode) ? (<button className="btn btn-warning" onClick={this.updatePlayerEvent}>Update Player</button>)
+          (editMode) ? (<button className="btn btn-warning" onClick={this.updatePlayerEvent}>Update Player</button>)
             : (<button className="btn btn-secondary" onClick={this.savePlayerEvent}>Save Player</button>)
         }
     </form>

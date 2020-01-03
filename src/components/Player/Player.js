@@ -19,9 +19,9 @@ class Player extends React.Component {
   }
 
   setEditModeEvent = (e) => {
-    const { setEditMode, setPlayerToEdit, player } = this.props;
     e.preventDefault();
-    setEditMode();
+    const { setEditMode, setPlayerToEdit, player } = this.props;
+    setEditMode(true);
     setPlayerToEdit(player);
   }
 

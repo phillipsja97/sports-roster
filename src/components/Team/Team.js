@@ -56,7 +56,7 @@ class Team extends React.Component {
   }
 
   setHidePlayerForm = () => {
-    this.setState({ showPlayerForm: false });
+    this.setState({ showPlayerForm: false, editMode: false });
   }
 
   setEditMode = () => {
@@ -69,10 +69,11 @@ class Team extends React.Component {
 
 
   render() {
+    const { setPlayerToEdit } = this.props;
     return (
       <div>
       <button className="btn btn-primary" onClick={this.setShowPlayerForm}>Add a new player</button>
-  { this.state.showPlayerForm && <PlayerForm addNewPlayer={this.addNewPlayer} editMode={this.editMode} updateCurrentPlayer={this.updateCurrentPlayer} setHidePlayerForm={this.setHidePlayerForm} /> }
+  { this.state.showPlayerForm && <PlayerForm addNewPlayer={this.addNewPlayer} editMode={this.state.editMode} playerToEdit={this.state.playerToEdit} updateCurrentPlayer={this.updateCurrentPlayer} setHidePlayerForm={this.setHidePlayerForm} /> }
       <div className="d-flex flex-wrap justify-content-center" id="playersContainer">
         { this.state.players.map((player) => (<Player key={player.id} player={player} deleteSinglePlayer={this.deleteSinglePlayer} addNewPlayer={this.addNewPlayer} setEditMode={this.setEditMode} setPlayerToEdit={this.setPlayerToEdit} />))}
       </div>
