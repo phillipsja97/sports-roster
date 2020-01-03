@@ -21,5 +21,5 @@
 ### Or
 * Clone down this project.
 * Go to: `https://www.npmjs.com/package/http-server` and install "http-server".
-* Navigate to the project folder in command line interface and type: `http-server -p 8888`
-* This will show at: `http://localhost:8888` in your internet browser.
+* Navigate to the project folder in command line interface and type: `http-server -p 3000`
+* This will show at: `http://localhost:3000` in your internet browser.
